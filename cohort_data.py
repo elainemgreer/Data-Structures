@@ -61,38 +61,46 @@ def sort_by_cohort(filename):
     summer_16 = []
     fall_15 = []
     ghosts = []
+    student_name = ""
 
     # open file
     house_data = open(filename)
-    #run loop at each line
+    # run loop at each line
     for line in house_data:
-        line.rstrip()
+        line = line.rstrip()
+
         line_list = line.split("|")
 
-    #filter out instructors
+
+        # filter out instructors
         if line_list[4] == "I":
+      
             continue
 
-    #filter out ghost into separate ghost list
+        # filter out ghost into separate ghost list
         elif line_list[4] == 'G':
-            ghosts.append(line_list[0:1])
-    #filter students into cohort list
+            ghosts.append(line_list[0] + " " + line_list[1])
+
+         
+        # filter students into cohort list
         elif line_list[4] == "Winter 2016":
-            winter_16.append(line_list[0:1])
+            winter_16.append(line_list[0] + " " + line_list[1])
+            
         elif line_list[4] == "Spring 2016":
-            spring_16.append(line_list[0:1])
+            spring_16.append(line_list[0] + " " + line_list[1])
         elif line_list[4] == "Summer 2016":
-            summer_16.append(line_list[0:1])
+            summer_16.append(line_list[0] + " " + line_list[1])
         elif line_list[4] == "Fall 2015":
-            fall_15.append(line_list[0:1])
-    #insert all cohort lists into all_students list, ghosts into ghost list
+            fall_15.append(line_list[0] + " " + line_list[1])
+    # insert all cohort lists into all_students list, ghosts into ghost list
+    all_students = [fall_15, winter_16, spring_16, summer_16, ghosts]
 
 
 
     # Code goes here
 
     return all_students
-
+sort_by_cohort("cohort_data.txt")
 
 def hogwarts_by_house(filename):
     """TODO: Sort students into lists by house and return all lists in one list.
