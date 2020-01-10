@@ -68,7 +68,6 @@ def sort_by_cohort(filename):
     # run loop at each line
     for line in house_data:
         line = line.rstrip()
-
         line_list = line.split("|")
 
 
@@ -80,12 +79,10 @@ def sort_by_cohort(filename):
         # filter out ghost into separate ghost list
         elif line_list[4] == 'G':
             ghosts.append(line_list[0] + " " + line_list[1])
-
-         
+       
         # filter students into cohort list
         elif line_list[4] == "Winter 2016":
             winter_16.append(line_list[0] + " " + line_list[1])
-            
         elif line_list[4] == "Spring 2016":
             spring_16.append(line_list[0] + " " + line_list[1])
         elif line_list[4] == "Summer 2016":
@@ -100,6 +97,8 @@ def sort_by_cohort(filename):
     # Code goes here
 
     return all_students
+
+
 sort_by_cohort("cohort_data.txt")
 
 def hogwarts_by_house(filename):
@@ -124,6 +123,17 @@ def hogwarts_by_house(filename):
     slytherin = []
     ghosts = []
     instructors = []
+
+    # open file
+    # rstrip file
+    # split file 
+
+    # filter out ghosts add to ghost list by last name  index 1
+    # filter instructors add to instructors list
+
+    #  if index 2 = house, add last name to certain house list 
+    # sort all lists in place
+    # put all lists in master list
 
     # Code goes here
 
